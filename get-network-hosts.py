@@ -61,9 +61,9 @@ response = requests.get(url, headers=header, verify=False)
 
 # json.dumps serializes the json into a string and allows us to
 # print the response in a 'pretty' format with indentation etc.
-print ("Hosts = ")
-print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
+r_resp = response.json()
+for i in r_resp["response"]:
+ print ("Hosts = ")
+ print("host Ip address:", i["hostIp"])
+ print("host Mac address:", i["hostMac"])
 
-r_resp=response.json()
-
-print(r_resp["response"][0]["hostIp"])
